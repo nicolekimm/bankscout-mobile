@@ -1,11 +1,13 @@
 import React, { Component, useContext } from 'react';
-import { Text, View, Image } from 'react-native';
-import { Input, Button, Header, Card } from 'react-native-elements';
+import { Text, View, Image, FlatList } from 'react-native';
+import { Input, Button, Header, Card, Overlay } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
+import Grid from 'react-native-grid-component';
+import Modal from 'modal-react-native-web';
 
 export default class Login extends React.Component {
     constructor(props){
@@ -14,7 +16,8 @@ export default class Login extends React.Component {
             filterBy: false,
             state: null,
             bank: null,
-
+            overlay: false,
+            modalVisible: false,
         }
         this.showFilter = this.showFilter.bind(this);
         this.closeFilter = this.closeFilter.bind(this);
@@ -36,11 +39,158 @@ export default class Login extends React.Component {
     valuetext(value) {
         return `$${value}`;
     }
+    onClose = () => this.setState({ modalVisible: false});
+    dorenderItem = data => (
+            this.state.users.map((u, i) => {
+            return (
+                <Card containerStyle={{width:'100%'}}>
+                    <View key={i} style={{justifyContent: 'center', alignItems: 'center', textAlign:'center'}}>
+                    <Image
+                        style={{ width: 50,
+                            height: 50}}
+                        source= {{uri: u.image}}
+                    />
+                    <Text style={{fontSize: '15px', textAlign:'center'}}>{u.name}</Text>
+                    <Text style={{fontSize: '15px', textAlign:'center'}}>{u.description}</Text>
+                    </View>
+                </Card>
+            );
+            })
+    );
     render() {
-    const filterBy = this.state.filterBy;
-    let card;
-    if (filterBy){
-        card =  
+
+    return (
+        <View style={{ flex: 1, backgroundColor: '#25315C'}}>
+            <Header
+                placement="left"
+                leftComponent={<Image style={{ width: 150, height: 30}} source={require('./bankwhite.png')} resizeMode={'center'} /> }
+                rightComponent={<View style={{ flex: 1, flexDirection:'row', marginRight:'10px'}}>
+                        <Icon
+                            name='bell'
+                            size={22}
+                            color='white'
+                        />
+                        <Icon
+                            name='user-circle'
+                            size={22}
+                            color='white'
+                            style={{marginLeft: '20px'}}
+                        />
+                    </View>}
+                containerStyle={{
+                    backgroundColor: '#25315C',
+                    justifyContent: 'space-around',
+                  }}
+            />
+            <View style={{ flexDirection:'row', marginTop: '30px'}}>
+                <Text style={{ fontSize: 30, color: '#2BF594', fontWeight: 'bold', position: 'absolute', marginLeft:'20px', marginRight:'30px'}}>   
+                    Find Offers 
+                </Text> 
+                <Button
+                    title="Filter"
+                    type="outline"
+                    buttonStyle = {{ width: 80, borderColor: 'white', borderRadius:'10px', marginLeft:'310px'}}
+                    titleStyle = {{ color: 'white'}}
+                    onPress={this.showFilter}
+                />
+            </View>
+            <View style={{ marginTop: '30px', marginLeft:'20px', marginRight:'30px'}}>
+                <DropDownPicker
+                        items={[
+                            {label: 'Reward', value: 'Reward'},
+                        ]}
+                        defaultValue={this.state.state}
+                        placeholder="Sort By"
+                        containerStyle={{height: 40}}
+                        style={{backgroundColor: '#fafafa', width: '100%'}}
+                        itemStyle={{
+                            justifyContent: 'flex-start'
+                        }}
+                        dropDownStyle={{backgroundColor: '#fafafa'}}
+                        onChangeItem={item => this.setState({
+                            state: item.value
+                        })}
+                />
+
+                <View style={{flexDirection:'row', justifyContent: 'center', alignItems: 'center', textAlign:'center', marginTop:'10px'}}>
+                    <Card containerStyle={{width: '40%', borderRadius:'10px', backgroundColor:'#C4C4C4'}}>
+                        <View style={{justifyContent: 'center', alignItems: 'center', textAlign:'center'}}>
+                        <Image
+                            style={{ width: 50,
+                                height: 50}}
+                            source= {{uri: 'https://i.pinimg.com/originals/70/4a/1e/704a1e534e8dc0138eee3ded449555d5.png'}}
+                        />
+                        <Text style={{fontSize: '15px', textAlign:'center'}}>Chase</Text>
+                        <Text style={{fontSize: '15px', textAlign:'center'}}>$150 Savings</Text>
+                        </View>
+                    </Card>
+                    <Card containerStyle={{width: '40%', borderRadius:'10px', backgroundColor:'#C4C4C4'}}>
+                        <View style={{justifyContent: 'center', alignItems: 'center', textAlign:'center'}}>
+                        <Image
+                            style={{ width: 50,
+                                height: 50}}
+                            source= {{uri: 'https://i.pinimg.com/originals/70/4a/1e/704a1e534e8dc0138eee3ded449555d5.png'}}
+                        />
+                        <Text style={{fontSize: '15px', textAlign:'center'}}>Chase</Text>
+                        <Text style={{fontSize: '15px', textAlign:'center'}}>$150 Savings</Text>
+                        </View>
+                    </Card>
+                </View>
+
+                <View style={{flexDirection:'row', justifyContent: 'center', alignItems: 'center', textAlign:'center', marginTop:'10px'}}>
+                    <Card containerStyle={{width: '40%', borderRadius:'10px', backgroundColor:'#C4C4C4'}}>
+                        <View style={{justifyContent: 'center', alignItems: 'center', textAlign:'center'}}>
+                        <Image
+                            style={{ width: 50,
+                                height: 50}}
+                            source= {{uri: 'https://i.pinimg.com/originals/70/4a/1e/704a1e534e8dc0138eee3ded449555d5.png'}}
+                        />
+                        <Text style={{fontSize: '15px', textAlign:'center'}}>Chase</Text>
+                        <Text style={{fontSize: '15px', textAlign:'center'}}>$150 Savings</Text>
+                        </View>
+                    </Card>
+                    <Card containerStyle={{width: '40%', borderRadius:'10px', backgroundColor:'#C4C4C4'}}>
+                        <View style={{justifyContent: 'center', alignItems: 'center', textAlign:'center'}}>
+                        <Image
+                            style={{ width: 50,
+                                height: 50}}
+                            source= {{uri: 'https://i.pinimg.com/originals/70/4a/1e/704a1e534e8dc0138eee3ded449555d5.png'}}
+                        />
+                        <Text style={{fontSize: '15px', textAlign:'center'}}>Chase</Text>
+                        <Text style={{fontSize: '15px', textAlign:'center'}}>$150 Savings</Text>
+                        </View>
+                    </Card>
+                </View>
+
+                <View style={{flexDirection:'row', justifyContent: 'center', alignItems: 'center', textAlign:'center', marginTop:'10px'}}>
+                    <Card containerStyle={{width: '40%', borderRadius:'10px', backgroundColor:'#C4C4C4'}}>
+                        <View style={{justifyContent: 'center', alignItems: 'center', textAlign:'center'}}>
+                        <Image
+                            style={{ width: 50,
+                                height: 50}}
+                            source= {{uri: 'https://i.pinimg.com/originals/70/4a/1e/704a1e534e8dc0138eee3ded449555d5.png'}}
+                        />
+                        <Text style={{fontSize: '15px', textAlign:'center'}}>Chase</Text>
+                        <Text style={{fontSize: '15px', textAlign:'center'}}>$150 Savings</Text>
+                        </View>
+                    </Card>
+                    <Card containerStyle={{width: '40%', borderRadius:'10px', backgroundColor:'#C4C4C4'}}>
+                        <View style={{justifyContent: 'center', alignItems: 'center', textAlign:'center'}}>
+                        <Image
+                            style={{ width: 50,
+                                height: 50}}
+                            source= {{uri: 'https://i.pinimg.com/originals/70/4a/1e/704a1e534e8dc0138eee3ded449555d5.png'}}
+                        />
+                        <Text style={{fontSize: '15px', textAlign:'center'}}>Chase</Text>
+                        <Text style={{fontSize: '15px', textAlign:'center'}}>$150 Savings</Text>
+                        </View>
+                    </Card>
+                </View>
+
+            </View>
+
+        <View>
+        <Overlay  ModalComponent={Modal} isVisible={this.state.filterBy} overlayStyle={{position: 'absolute', bottom: 0}}>
         <Card containerStyle={{borderTopLeftRadius:'10px', borderTopRightRadius:'10px'}}>
             <Card.Title h3 h3Style={{color:'black'}}>Filter By</Card.Title>
             <View style={{flexDirection:"row", justifyContent: "space-between"}}>
@@ -165,61 +315,8 @@ export default class Login extends React.Component {
             />
             </View>
         </Card>
-    }
-    return (
-        <View style={{ flex: 1, backgroundColor: '#25315C'}}>
-            <Header
-                placement="left"
-                leftComponent={<Image style={{ width: 150, height: 30}} source={require('./bankwhite.png')} resizeMode={'center'} /> }
-                rightComponent={<View style={{ flex: 1, flexDirection:'row', marginRight:'10px'}}>
-                        <Icon
-                            name='bell'
-                            size={22}
-                            color='white'
-                        />
-                        <Icon
-                            name='user-circle'
-                            size={22}
-                            color='white'
-                            style={{marginLeft: '20px'}}
-                        />
-                    </View>}
-                containerStyle={{
-                    backgroundColor: '#25315C',
-                    justifyContent: 'space-around',
-                  }}
-            />
-            <View style={{ flexDirection:'row', marginTop: '30px'}}>
-                <Text style={{ fontSize: 30, color: '#2BF594', fontWeight: 'bold', position: 'absolute', marginLeft:'20px', marginRight:'30px'}}>   
-                    Find Offers 
-                </Text> 
-                <Button
-                    title="Filter"
-                    type="outline"
-                    buttonStyle = {{ width: 80, borderColor: 'white', borderRadius:'10px', marginLeft:'310px'}}
-                    titleStyle = {{ color: 'white'}}
-                    onPress={this.showFilter}
-                />
-            </View>
-            <View style={{ marginTop: '30px', marginLeft:'20px', marginRight:'30px'}}>
-            <DropDownPicker
-                    items={[
-                        {label: 'Reward', value: 'Reward'},
-                    ]}
-                    defaultValue={this.state.state}
-                    placeholder="Sort By"
-                    containerStyle={{height: 40}}
-                    style={{backgroundColor: '#fafafa', width: '100%'}}
-                    itemStyle={{
-                        justifyContent: 'flex-start'
-                    }}
-                    dropDownStyle={{backgroundColor: '#fafafa'}}
-                    onChangeItem={item => this.setState({
-                        state: item.value
-                    })}
-            />
-            </View>
-            {card}
+        </Overlay>
+        </View>
         </View>
     )
 }

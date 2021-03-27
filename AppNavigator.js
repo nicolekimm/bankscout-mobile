@@ -2,8 +2,7 @@ import * as React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { Ionicons } from '@expo/vector-icons'
-
+import { Icon } from 'react-native-elements'
 import LandingScreen from './components/Landing';
 import RegisterScreen from './components/Register';
 import LoginScreen from './components/Login';
@@ -14,13 +13,23 @@ const Tab = createBottomTabNavigator()
 function MainTabNavigator() {
   return (
     <Tab.Navigator
-      tabBarOptions={{
-        activeTintColor: '#101010',
-        style: {
-          backgroundColor: '#ffd700'
+    tabBarOptions={{
+      showLabel: false,
+      activeTintColor: '#101010',
+      style: {
+        backgroundColor: '#25315C'
+      }
+    }}
+    screenOptions={({ route }) => ({
+      tabBarIcon: () => {
+        let iconName;
+        if (route.name == 'Offers') {
+          iconName = 'coins'
         }
-      }}>
-      <Tab.Screen name='Login' component={LoginScreen} />
+        return <Icon type='font-awesome-5' name={iconName} size={24} color="white" />
+      }
+    })}>
+      <Tab.Screen name='Offers' component={LoginScreen} />
     </Tab.Navigator>
   )
 }

@@ -189,7 +189,7 @@ export default class Login extends React.Component {
                     justifyContent: 'space-around',
                   }}
             />
-            <View style={{ flex: 1, flexDirection:'row', marginTop: '30px'}}>
+            <View style={{ flexDirection:'row', marginTop: '30px'}}>
                 <Text style={{ fontSize: 30, color: '#2BF594', fontWeight: 'bold', position: 'absolute', marginLeft:'20px', marginRight:'30px'}}>   
                     Find Offers 
                 </Text> 
@@ -200,6 +200,24 @@ export default class Login extends React.Component {
                     titleStyle = {{ color: 'white'}}
                     onPress={this.showFilter}
                 />
+            </View>
+            <View style={{ marginTop: '30px', marginLeft:'20px', marginRight:'30px'}}>
+            <DropDownPicker
+                    items={[
+                        {label: 'Reward', value: 'Reward'},
+                    ]}
+                    defaultValue={this.state.state}
+                    placeholder="Sort By"
+                    containerStyle={{height: 40}}
+                    style={{backgroundColor: '#fafafa', width: '100%'}}
+                    itemStyle={{
+                        justifyContent: 'flex-start'
+                    }}
+                    dropDownStyle={{backgroundColor: '#fafafa'}}
+                    onChangeItem={item => this.setState({
+                        state: item.value
+                    })}
+            />
             </View>
             {card}
         </View>

@@ -101,7 +101,7 @@ export default class Login extends React.Component {
                                 height: 50}}
                             source= {{uri: 'https://i.pinimg.com/originals/70/4a/1e/704a1e534e8dc0138eee3ded449555d5.png'}}
                         />
-                        <Text style={{fontSize: '15px', textAlign:'center'}}>Chase</Text>
+                        <Text style={{fontSize: '15px', textAlign:'center', marginTop:'5px'}}>Chase</Text>
                         <Text style={{fontSize: '15px', textAlign:'center'}}>$150 Savings</Text>
                         </View>
                     </Card>
@@ -112,32 +112,7 @@ export default class Login extends React.Component {
                                 height: 50}}
                             source= {{uri: 'https://i.pinimg.com/originals/70/4a/1e/704a1e534e8dc0138eee3ded449555d5.png'}}
                         />
-                        <Text style={{fontSize: '15px', textAlign:'center'}}>Chase</Text>
-                        <Text style={{fontSize: '15px', textAlign:'center'}}>$150 Savings</Text>
-                        </View>
-                    </Card>
-                </View>
-
-                <View style={{flexDirection:'row', justifyContent: 'center', alignItems: 'center', textAlign:'center', marginTop:'10px'}}>
-                    <Card containerStyle={{width: '40%', borderRadius:'10px', backgroundColor:'#C4C4C4'}}>
-                        <View style={{justifyContent: 'center', alignItems: 'center', textAlign:'center'}}>
-                        <Image
-                            style={{ width: 50,
-                                height: 50}}
-                            source= {{uri: 'https://i.pinimg.com/originals/70/4a/1e/704a1e534e8dc0138eee3ded449555d5.png'}}
-                        />
-                        <Text style={{fontSize: '15px', textAlign:'center'}}>Chase</Text>
-                        <Text style={{fontSize: '15px', textAlign:'center'}}>$150 Savings</Text>
-                        </View>
-                    </Card>
-                    <Card containerStyle={{width: '40%', borderRadius:'10px', backgroundColor:'#C4C4C4'}}>
-                        <View style={{justifyContent: 'center', alignItems: 'center', textAlign:'center'}}>
-                        <Image
-                            style={{ width: 50,
-                                height: 50}}
-                            source= {{uri: 'https://i.pinimg.com/originals/70/4a/1e/704a1e534e8dc0138eee3ded449555d5.png'}}
-                        />
-                        <Text style={{fontSize: '15px', textAlign:'center'}}>Chase</Text>
+                        <Text style={{fontSize: '15px', textAlign:'center', marginTop:'5px'}}>Chase</Text>
                         <Text style={{fontSize: '15px', textAlign:'center'}}>$150 Savings</Text>
                         </View>
                     </Card>
@@ -151,7 +126,7 @@ export default class Login extends React.Component {
                                 height: 50}}
                             source= {{uri: 'https://i.pinimg.com/originals/70/4a/1e/704a1e534e8dc0138eee3ded449555d5.png'}}
                         />
-                        <Text style={{fontSize: '15px', textAlign:'center'}}>Chase</Text>
+                        <Text style={{fontSize: '15px', textAlign:'center', marginTop:'5px'}}>Chase</Text>
                         <Text style={{fontSize: '15px', textAlign:'center'}}>$150 Savings</Text>
                         </View>
                     </Card>
@@ -162,7 +137,32 @@ export default class Login extends React.Component {
                                 height: 50}}
                             source= {{uri: 'https://i.pinimg.com/originals/70/4a/1e/704a1e534e8dc0138eee3ded449555d5.png'}}
                         />
-                        <Text style={{fontSize: '15px', textAlign:'center'}}>Chase</Text>
+                        <Text style={{fontSize: '15px', textAlign:'center', marginTop:'5px'}}>Chase</Text>
+                        <Text style={{fontSize: '15px', textAlign:'center'}}>$150 Savings</Text>
+                        </View>
+                    </Card>
+                </View>
+
+                <View style={{flexDirection:'row', justifyContent: 'center', alignItems: 'center', textAlign:'center', marginTop:'10px'}}>
+                    <Card containerStyle={{width: '40%', borderRadius:'10px', backgroundColor:'#C4C4C4'}}>
+                        <View style={{justifyContent: 'center', alignItems: 'center', textAlign:'center'}}>
+                        <Image
+                            style={{ width: 50,
+                                height: 50}}
+                            source= {{uri: 'https://i.pinimg.com/originals/70/4a/1e/704a1e534e8dc0138eee3ded449555d5.png'}}
+                        />
+                        <Text style={{fontSize: '15px', textAlign:'center', marginTop:'5px'}}>Chase</Text>
+                        <Text style={{fontSize: '15px', textAlign:'center'}}>$150 Savings</Text>
+                        </View>
+                    </Card>
+                    <Card containerStyle={{width: '40%', borderRadius:'10px', backgroundColor:'#C4C4C4'}}>
+                        <View style={{justifyContent: 'center', alignItems: 'center', textAlign:'center'}}>
+                        <Image
+                            style={{ width: 50,
+                                height: 50}}
+                            source= {{uri: 'https://i.pinimg.com/originals/70/4a/1e/704a1e534e8dc0138eee3ded449555d5.png'}}
+                        />
+                        <Text style={{fontSize: '15px', textAlign:'center', marginTop:'5px'}}>Chase</Text>
                         <Text style={{fontSize: '15px', textAlign:'center'}}>$150 Savings</Text>
                         </View>
                     </Card>

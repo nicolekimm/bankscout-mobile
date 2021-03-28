@@ -6,7 +6,6 @@ import DropDownPicker from 'react-native-dropdown-picker';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
-import Grid from 'react-native-grid-component';
 import Modal from 'modal-react-native-web';
 
 export default class Login extends React.Component {
@@ -39,24 +38,6 @@ export default class Login extends React.Component {
     valuetext(value) {
         return `$${value}`;
     }
-    onClose = () => this.setState({ modalVisible: false});
-    dorenderItem = data => (
-            this.state.users.map((u, i) => {
-            return (
-                <Card containerStyle={{width:'100%'}}>
-                    <View key={i} style={{justifyContent: 'center', alignItems: 'center', textAlign:'center'}}>
-                    <Image
-                        style={{ width: 50,
-                            height: 50}}
-                        source= {{uri: u.image}}
-                    />
-                    <Text style={{fontSize: '15px', textAlign:'center'}}>{u.name}</Text>
-                    <Text style={{fontSize: '15px', textAlign:'center'}}>{u.description}</Text>
-                    </View>
-                </Card>
-            );
-            })
-    );
     render() {
 
     return (
@@ -190,8 +171,8 @@ export default class Login extends React.Component {
             </View>
 
         <View>
-        <Overlay  ModalComponent={Modal} isVisible={this.state.filterBy} overlayStyle={{position: 'absolute', bottom: 0}}>
-        <Card containerStyle={{borderTopLeftRadius:'10px', borderTopRightRadius:'10px'}}>
+        <Overlay  ModalComponent={Modal} isVisible={this.state.filterBy} overlayStyle={{position: 'absolute', bottom: 0, borderTopLeftRadius:'10px', borderTopRightRadius:'10px'}}>
+        <Card>
             <Card.Title h3 h3Style={{color:'black'}}>Filter By</Card.Title>
             <View style={{flexDirection:"row", justifyContent: "space-between"}}>
                 <DropDownPicker
@@ -200,8 +181,8 @@ export default class Login extends React.Component {
                     ]}
                     defaultValue={this.state.state}
                     placeholder="State"
-                    containerStyle={{height: 40}}
-                    style={{backgroundColor: '#fafafa', width: 170}}
+                    containerStyle={{height: 40, width: '45%'}}
+                    style={{backgroundColor: '#fafafa'}}
                     itemStyle={{
                         justifyContent: 'flex-start'
                     }}
@@ -216,8 +197,8 @@ export default class Login extends React.Component {
                     ]}
                     defaultValue={this.state.bank}
                     placeholder="Bank"
-                    containerStyle={{height: 40}}
-                    style={{backgroundColor: '#fafafa', width: 170}}
+                    containerStyle={{height: 40, width: '45%'}}
+                    style={{backgroundColor: '#fafafa'}}
                     itemStyle={{
                         justifyContent: 'flex-start'
                     }}

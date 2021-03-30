@@ -7,6 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
 import Modal from 'modal-react-native-web';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default class Login extends React.Component {
     constructor(props){
@@ -39,6 +40,7 @@ export default class Login extends React.Component {
         return `$${value}`;
     }
     render() {
+        const { navigate } = this.props.navigation;
 
     return (
         <View style={{ flex: 1, backgroundColor: '#25315C'}}>
@@ -95,6 +97,7 @@ export default class Login extends React.Component {
 
                 <View style={{flexDirection:'row', justifyContent: 'center', alignItems: 'center', textAlign:'center', marginTop:'10px'}}>
                     <Card containerStyle={{width: '40%', borderRadius:'10px', backgroundColor:'#C4C4C4'}}>
+                    <TouchableOpacity onPress={() => navigate("OfferPage")}>
                         <View style={{justifyContent: 'center', alignItems: 'center', textAlign:'center'}}>
                         <Image
                             style={{ width: 50,
@@ -104,6 +107,7 @@ export default class Login extends React.Component {
                         <Text style={{fontSize: '15px', textAlign:'center', marginTop:'5px'}}>Chase</Text>
                         <Text style={{fontSize: '15px', textAlign:'center'}}>$150 Savings</Text>
                         </View>
+                    </TouchableOpacity>
                     </Card>
                     <Card containerStyle={{width: '40%', borderRadius:'10px', backgroundColor:'#C4C4C4'}}>
                         <View style={{justifyContent: 'center', alignItems: 'center', textAlign:'center'}}>

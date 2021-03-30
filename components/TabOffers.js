@@ -6,7 +6,7 @@ import { ProgressBar, Colors } from 'react-native-paper';
 
 const FirstRoute = () => (
     <View style={{ flex: 1, backgroundColor: '#25315C' }}>
-            <Card containerStyle={{width: '90%', borderRadius:'10px', backgroundColor:'#C4C4C4'}}>
+            <Card containerStyle={{width: '93%', borderRadius:'10px', backgroundColor:'#C4C4C4'}}>
             <View style={{flexDirection:'row'}}>
                 <Image
                     style={{ width: 50,
@@ -16,7 +16,7 @@ const FirstRoute = () => (
                 <View style={{flexDirection:'column', marginLeft: '20px'}}>
                     <Text style={{fontSize: '25px', fontWeight: 'bold'}}>Chase Bank</Text>
                     <Text style={{fontSize: '15px', marginTop: '5px'}}>$150 Savings</Text>
-                    <ProgressBar progress={0.5} color={Colors.red800} style={{marginTop: '15px'}} />
+                    <ProgressBar progress={0.5} color={'#5EA365'} style={{marginTop: '15px'}} />
                     <Text style={{fontSize: '15px', marginTop: '10px'}}>1 of 2 tasks completed</Text>
                 </View>
             </View>

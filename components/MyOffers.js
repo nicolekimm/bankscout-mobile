@@ -37,9 +37,9 @@ export default class MyOffers extends React.Component {
                         justifyContent: 'space-around',
                       }}
                 />
-                <View style={{ flexDirection:'row', marginTop: '10px'}}>
-                    <Text style={{ fontSize: 30, color: 'white', fontWeight: 'bold', position: 'absolute', marginLeft:'20px', marginRight:'30px'}}>   
-                        Offers
+                <View style={{ flexDirection:'row', marginTop: '30px'}}>
+                    <Text style={{ fontSize: 30, color: '#2BF594', fontWeight: 'bold', position: 'absolute', marginLeft:'20px', marginRight:'30px'}}>   
+                        My Offers
                     </Text> 
                 </View>
                 <TabOffers></TabOffers>
